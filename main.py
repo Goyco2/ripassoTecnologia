@@ -9,7 +9,7 @@ import shapely.wkt
 app = Flask(__name__)
 
 # Stringa di connessione al DB
-app.config["MONGO_URI"] = "mongodb+srv://tagalessandro:MagicArcher10@cluster0.qgpkcie.mongodb.net/Relab" #Importante qui va specificato il nome del DB
+app.config["MONGO_URI"] = "mongodb+srv://Goyco2:Angelica.1@cluster0.qgpkcie.mongodb.net/Relab" #Importante qui va specificato il nome del DB
 
 mongo = PyMongo(app)
 # Per rispondere alle chiamate cross origin
@@ -154,7 +154,7 @@ def get_avg(lng, lat, r):
                              properties={'id': s['_id']['SEZ'], 'media': s['AVG'], 'somma': s['SUM'], 'sezione': s['_id']['SEZ']})
         output.append(g2)
     return jsonify(geojson.FeatureCollection(output))
-    
+
 if __name__ == "__main__":
     # Runs the Flask application only if the main.py file is being run.
     app.run()
