@@ -49,5 +49,70 @@ export class AppComponent implements OnInit {
   mostra() {
     this.accendi = !this.accendi
   }
+  //richiesta http di una cordinata random
+  pikachu() {
+    this.markers = [];
+    this.http.get<Prova>(this.url + "pikachu").subscribe(data => {
+      let lng = data["lng"]
+      let lat = data["lat"]
+      let marker: Marker = new Marker(lat, lng);
+      this.markers.push(marker)
+
+      //immagine
+      let iconData: google.maps.Icon = {
+        url: '/assets/img/Pikachu.png',
+        scaledSize: new google.maps.Size(60, 60)
+      }
+      this.markerOptions = { icon: iconData }
+    })
+  }
+
+  bulbasaur() {
+    this.markers = [];
+    this.http.get<Prova>(this.url + "bulbasaur").subscribe(data => {
+      let lng = data["lng"]
+      let lat = data["lat"]
+      let marker: Marker = new Marker(lat, lng);
+      this.markers.push(marker)
+
+      let iconData: google.maps.Icon = {
+        url: 'assets/img/Bulbasaur.png',
+        scaledSize: new google.maps.Size(60, 60)
+      }
+      this.markerOptions = { icon: iconData }
+    })
+  }
+
+  charmender() {
+    this.markers = [];
+    this.http.get<Prova>(this.url + "charmender").subscribe(data => {
+      let lng = data["lng"]
+      let lat = data["lat"]
+      let marker: Marker = new Marker(lat, lng);
+      this.markers.push(marker)
+
+      let iconData: google.maps.Icon = {
+        url: '/assets/img/Charmander.png',
+        scaledSize: new google.maps.Size(60, 60)
+      }
+      this.markerOptions = { icon: iconData }
+    })
+  }
+
+  snorlax() {
+    this.markers = [];
+    this.http.get<Prova>(this.url + "snorlax").subscribe(data => {
+      let lng = data["lng"]
+      let lat = data["lat"]
+      let marker: Marker = new Marker(lat, lng);
+      this.markers.push(marker)
+
+      let iconData: google.maps.Icon = {
+        url: '/assets/img/Snorlax.png',
+        scaledSize: new google.maps.Size(60, 60)
+      }
+      this.markerOptions = { icon: iconData }
+    })
+  }
 }
 
