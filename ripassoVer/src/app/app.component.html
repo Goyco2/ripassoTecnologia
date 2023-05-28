@@ -1,0 +1,10 @@
+<google-map [center]="center">
+
+  <div *ngIf = "accendi">
+    <map-marker *ngFor="let m of markers; let i = index" [position]="{'lat': m.lat, 'lng': m.lng}"
+      [options]="markerOptions"></map-marker>
+  </div>
+
+</google-map>
+
+<button (click)="mostra()">show</button>
